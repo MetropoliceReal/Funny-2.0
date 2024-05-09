@@ -1,0 +1,61 @@
+@echo off
+title Avventura Testuale - La Foresta Misteriosa
+
+echo Benvenuto nella Foresta Misteriosa!
+echo.
+echo Ti trovi nel bel mezzo di una foresta oscura e misteriosa.
+echo Devi trovare il tesoro nascosto al suo interno.
+echo Ma sii avvisato, la foresta è piena di insidie e pericoli!
+echo.
+
+:inizio
+echo Cosa vuoi fare?
+echo 1. Seguire il sentiero a sinistra.
+echo 2. Esplorare il bosco fitto.
+echo 3. Salire su un albero per ottenere una visione d'insieme.
+echo 4. Accendere un fuoco e riposare un po'.
+
+set /p scelta="Scelta (1-4): "
+
+if "%scelta%"=="1" (
+    echo Seguendo il sentiero a sinistra...
+    echo Incontri un troll che ti chiede una tassa di attraversamento.
+    echo Cosa fai?
+    echo 1. Combatti contro il troll.
+    echo 2. Cerchi di scappare indietro.
+    set /p scelta_troll="Scelta (1-2): "
+    if "%scelta_troll%"=="1" (
+        echo Decidi di combattere contro il troll.
+        echo Il troll è troppo forte e ti sconfigge. GAME OVER.
+    ) else (
+        echo Cerchi di scappare indietro.
+        echo Riesci a fuggire indietro. Torna al punto di partenza.
+        goto inizio
+    )
+) else if "%scelta%"=="2" (
+    echo Esplorando il bosco fitto...
+    echo Ti perdi nel bosco e non trovi più la strada. GAME OVER.
+) else if "%scelta%"=="3" (
+    echo Salendo su un albero...
+    echo Ottieni una visione d'insieme della foresta e vedi una luce nel buio.
+    echo Cosa fai?
+    echo 1. Segui la luce.
+    echo 2. Resti dove sei.
+    set /p scelta_albero="Scelta (1-2): "
+    if "%scelta_albero%"=="1" (
+        echo Decidi di seguire la luce...
+        echo Trovi il tesoro nascosto! HAI VINTO!
+    ) else (
+        echo Decidi di restare dove sei.
+        echo Rimani lì senza alcuna avventura. Ritorna al punto di partenza.
+        goto inizio
+    )
+) else if "%scelta%"=="4" (
+    echo Accendendo un fuoco...
+    echo Mentre cerchi di accendere un fuoco, scopri che hai dimenticato l'accendino a casa. GAME OVER.
+) else (
+    echo Scelta non valida. Riprova.
+    goto inizio
+)
+
+pause >nul
